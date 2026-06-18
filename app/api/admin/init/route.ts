@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
-import { ensureTopology } from "@/lib/memory/init";
+import { ensureTopology } from "@/memory/topology";
+import { env } from "@/shared/env";
 
 /**
  * POST /api/admin/init
@@ -14,7 +15,7 @@ import { ensureTopology } from "@/lib/memory/init";
 export async function POST(req: Request) {
   const secret = req.headers.get("x-admin-secret");
 
-  if (!process.env.ADMIN_SECRET || secret !== process.env.ADMIN_SECRET) {
+  if (!env.ADMIN_SECRET() || secret !== env.ADMIN_SECRET()) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }
 
