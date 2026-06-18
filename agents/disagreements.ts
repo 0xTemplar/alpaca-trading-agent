@@ -43,7 +43,7 @@ export async function detectDisagreements(): Promise<Disagreement[]> {
 
     for (const variant of VARIANTS) {
       const pos = positions.find(
-        (p) => p.symbol === ticker && p.qty !== "0"
+        (p: AlpacaPosition) => p.symbol === ticker && p.qty !== "0"
       );
       const shares = pos ? parseInt(pos.qty) : 0;
       const side   = shares > 0 ? "long" : shares < 0 ? "short" : "flat";

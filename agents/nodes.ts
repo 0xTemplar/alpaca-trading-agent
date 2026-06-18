@@ -7,7 +7,7 @@ import { checkEntry, processTick } from "@/scanner/orb-watcher";
 import { env } from "@/shared/env";
 import { isPastEOD, isNoTradeWindow, minutesFromOpen } from "@/shared/time";
 import type { AgentState } from "./state";
-import type { ClosedTrade } from "@/shared/types";
+import type { ClosedTrade, WatchlistEntry } from "@/shared/types";
 
 const llm = new ChatOpenAI({
   model: "gpt-4o-mini",
