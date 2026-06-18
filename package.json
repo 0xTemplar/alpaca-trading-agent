@@ -9,14 +9,14 @@
     "lint": "eslint"
   },
   "dependencies": {
-    "@ai-sdk/openai": "^3.0.73",
+    "@ai-sdk/openai": "^1.3.24",
     "@langchain/core": "^1.2.0",
     "@langchain/langgraph": "^1.4.4",
     "@langchain/openai": "^1.5.0",
     "@memfork/core": "^0.1.12",
     "@memfork/langgraph": "^0.1.1",
     "@memfork/vercel-ai": "^0.1.1",
-    "ai": "^6.0.208",
+    "ai": "^4.3.19",
     "next": "16.2.9",
     "react": "19.2.4",
     "react-dom": "19.2.4"
