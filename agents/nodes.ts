@@ -24,7 +24,7 @@ export async function observeNode(state: AgentState): Promise<Partial<AgentState
   }
 
   const signals = await Promise.all(
-    state.watchlist.map((entry) => checkEntry(entry, state.variant))
+    state.watchlist.map((entry: WatchlistEntry) => checkEntry(entry, state.variant))
   );
   const signal = signals.find(Boolean) ?? null;
   return { signal };

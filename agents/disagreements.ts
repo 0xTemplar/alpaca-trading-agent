@@ -1,7 +1,7 @@
 import { getMemClient } from "@/memory/client";
 import { getPositions } from "@/trading/broker/alpaca";
 import { VARIANTS } from "@/strategies/config";
-import type { VariantName } from "@/shared/types";
+import type { VariantName, AlpacaPosition } from "@/shared/types";
 
 export interface Disagreement {
   ticker: string;
@@ -28,7 +28,7 @@ export async function detectDisagreements(): Promise<Disagreement[]> {
   ]);
 
   // Group positions by ticker
-  const byTicker = new Map<string, typeof positions>();
+  const byTicker = new Map<string, AlpacaPosition[]>();
   for (const pos of positions) {
     const key = pos.symbol;
     if (!byTicker.has(key)) byTicker.set(key, []);
